@@ -61,7 +61,7 @@ do_compile() {
 	echo "Making .."
 	echo '${WORKDIR}'
 	cd ${WORKDIR}/git
-	make -j$(nproc) DEBUG=n DEBUG_GLIBCXX=n USE_LIBINPUT=y GEOTIFF=n ENABLE_MESA_KMS=y
+	make -j$(nproc) DEBUG=n DEBUG_GLIBCXX=n USE_LIBINPUT=y GEOTIFF=n USE_FB=y OPENGL=n EGL=n
 }
 
 do_install() {

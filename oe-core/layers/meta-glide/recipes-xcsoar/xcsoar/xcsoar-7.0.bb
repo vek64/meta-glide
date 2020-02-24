@@ -25,6 +25,13 @@ DEPENDS = "	\
 		jpeg \
 		freetype \
 		libpng \
+        	glm \
+        	virtual/egl \
+        	virtual/mesa \
+        	virtual/libgles1 \
+        	virtual/libgles2 \
+        	alsa-lib \
+        	curlpp \
 "
 
 RDEPENDS_${PN} = "\
@@ -61,7 +68,8 @@ do_compile() {
 	echo "Making .."
 	echo '${WORKDIR}'
 	cd ${WORKDIR}/git
-	make -j$(nproc) DEBUG=n DEBUG_GLIBCXX=n USE_LIBINPUT=y GEOTIFF=n USE_FB=y OPENGL=n EGL=n
+	#make -j$(nproc) DEBUG=n DEBUG_GLIBCXX=n USE_LIBINPUT=y GEOTIFF=n USE_FB=y OPENGL=n EGL=n
+	make -j$(nproc) DEBUG=n DEBUG_GLIBCXX=n ENABLE_MESA_KMS=y GEOTIFF=n
 }
 
 do_install() {

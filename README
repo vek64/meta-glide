@@ -18,3 +18,8 @@ or 5.2 build only xcsoar:
   1. https://developer.toradex.com/knowledge-base/board-support-package/openembedded-(core)
   2. the webinars found within the above page
   3 https://github.com/Openvario/meta-openvario
+
+
+Then you can populate the sdk, so one can cross-compile by hand (I think),
+  $ bitbake angstrom-lxde-image -c populate_sdk
+

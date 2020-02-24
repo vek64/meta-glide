@@ -8,4 +8,13 @@
  $ repo sync
 4. setup the bitbake environemnt:
  $ . export
-5. 
+5.1 Now one can build the toradex colibri t30 image:
+ $ bitbake angstrom-lxde-image
+
+or 5.2 build only xcsoar:
+ $ bitbake xcsoar-7.0
+ 
+ This is all heavily inspired / copy and pasted from:
+  1. https://developer.toradex.com/knowledge-base/board-support-package/openembedded-(core)
+  2. the webinars found within the above page
+  3 https://github.com/Openvario/meta-openvario

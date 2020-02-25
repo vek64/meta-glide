@@ -1,19 +1,18 @@
-### Build the docker image & run it:
+#### Build the docker image & run it:
  $ docker build -f Dockerfile . -t toradex-yotco
  $ ./run_dock.sh
-### Get the toradex configurations (in the docker image at /home/yocto/oe-core, this is the mounted folder if you run with ./run_dock.sh):
- $ repo init -u http://git.toradex.com/toradex-bsp-platform.git -b LinuxImageV2.8
-### update/fetch the repos:
- $ repo sync
-### setup the bitbake environemnt:
- $ . export
-### Now one can build the toradex colibri t30 image:
- $ bitbake angstrom-lxde-image
-
-### or build only xcsoar:
- $ bitbake xcsoar-7.0
+#### Get the toradex configurations (in the docker image at /home/yocto/oe-core, this is the mounted folder if you run with ./run_dock.sh):
+`````` $ repo init -u http://git.toradex.com/toradex-bsp-platform.git -b LinuxImageV2.8
+#### update/fetch the repos:
+`````` $ repo sync
+#### setup the bitbake environemnt:
+`````` $ . export
+#### Now one can build the toradex colibri t30 image:
+`````` $ bitbake angstrom-lxde-image
+#### or build only xcsoar:
+`````` $ bitbake xcsoar-7.0
  
-### This is all heavily inspired / copy and pasted from:
+#### This is all heavily inspired / copy and pasted from:
   1. https://developer.toradex.com/knowledge-base/board-support-package/openembedded-(core)
   2. the webinars found within the above page
   3 https://github.com/Openvario/meta-openvario

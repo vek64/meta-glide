@@ -14,12 +14,12 @@ RUN apt-get install -y locales vim quilt imagemagick ffmpeg mtools parted sudo
 RUN useradd -ms /bin/bash  yocto && \
     /usr/sbin/locale-gen en_US.UTF-8
 RUN adduser yocto sudo
+RUN echo 'yocto:blub' | chpasswd
 
 USER yocto
 RUN mkdir ~/bin
 RUN curl http://commondatastorage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
 RUN chmod a+x ~/bin/repo
-RUN echo 'blub' | chpasswd
 
 ENV LC_ALL=en_US.UTF-8
 ENV LANG=en_US.UTF-8

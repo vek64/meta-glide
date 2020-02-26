@@ -25,13 +25,14 @@ DEPENDS = "	\
 		jpeg \
 		freetype \
 		libpng \
-        	glm \
-        	virtual/egl \
-        	virtual/mesa \
-        	virtual/libgles1 \
-        	virtual/libgles2 \
-        	alsa-lib \
-        	curlpp \
+        glm \
+        virtual/egl \
+        virtual/mesa \
+        virtual/libgles1 \
+        virtual/libgles2 \
+        alsa-lib \
+        curlpp \
+        libsocketcan \
 "
 
 RDEPENDS_${PN} = "\
@@ -43,7 +44,7 @@ S = "${WORKDIR}/git"
 LC_LOCALE_PATH = "/usr/share/locale"
 
 SRC_URI = " \
-	git://github.com/XCSoar/XCSoar.git;protocol=git;tag=v7.0_preview14 \
+	git://github.com/ubx/XCSoar.git;protocol=git;branch=can-bus;tag=t30-test-02 \
 	file://0005-Adapted-toolchain-prefixes-for-cross-compile.patch \
 	file://0001-Adapted-Flags-for-compiler-and-linker-for-cross-comp.patch \
 	file://0001-Disable-warnings-as-errors.patch \
@@ -68,8 +69,8 @@ do_compile() {
 	echo "Making .."
 	echo '${WORKDIR}'
 	cd ${WORKDIR}/git
-	#make -j$(nproc) DEBUG=n DEBUG_GLIBCXX=n USE_LIBINPUT=y GEOTIFF=n USE_FB=y OPENGL=n EGL=n
-	make -j$(nproc) DEBUG=n DEBUG_GLIBCXX=n ENABLE_MESA_KMS=y GEOTIFF=n
+	make -j$(nproc) DEBUG=n DEBUG_GLIBCXX=n USE_LIBINPUT=y GEOTIFF=n USE_FB=y OPENGL=n
+	##  *** USE_FB and EGL are mutually exclusive
 }
 
 do_install() {

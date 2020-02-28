@@ -1,5 +1,5 @@
 FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}:"
 
-iSRC_URI += " \
+SRC_URI_append = " \
     	file://CAN.cfg \
 	"

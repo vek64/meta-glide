@@ -26,9 +26,9 @@ or build only xcsoar:
 ``````bitbake xcsoar-7.0``````
  
 This is all heavily inspired / copy and pasted from:
- 1. https://developer.toradex.com/knowledge-base/board-support-package/openembedded-(core)
+ 1. <https://developer.toradex.com/knowledge-base/board-support-package/openembedded-(core)>
  2. the webinars found within the above page
- 3. https://github.com/Openvario/meta-openvario
+ 3. <https://github.com/Openvario/meta-openvario>
 
 
 Then you can populate the sdk, so one can cross-compile by hand (I think),

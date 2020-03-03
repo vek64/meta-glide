@@ -1,5 +1,13 @@
-FILESEXTRAPATHS_prepend := "${THISDIR}/linux-toradex:"
+config_script () {
+     echo "CONFIG_CAN=y" >> ${B}/.config
+     echo "CONFIG_VCAN=y" >> ${B}/.config
+     echo "CONFIG_CAN_RAW=y" >> ${B}/.config
+     echo "CONFIG_CAN_BCM=y"  >> ${B}/.config
+     echo "CONFIG_CAN_DEV=y" >> ${B}/.config
+     echo "CONFIG_CAN_MCP251X=y"  >> ${B}/.config
+     echo "dummy" > /dev/null
+}
 
-SRC_URI += " \
-    	file://CAN.cfg \
-	"
+do_configure_prepend () {
+    config_script
+}

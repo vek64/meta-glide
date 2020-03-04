@@ -1,6 +1,6 @@
 config_script () {
      echo "CONFIG_CAN=y" >> ${B}/.config
-     echo "CONFIG_VCAN=y" >> ${B}/.config
+     echo "CONFIG_CAN_VCAN=y" >> ${B}/.config
      echo "CONFIG_CAN_RAW=y" >> ${B}/.config
      echo "CONFIG_CAN_BCM=y"  >> ${B}/.config
      echo "CONFIG_CAN_DEV=y" >> ${B}/.config

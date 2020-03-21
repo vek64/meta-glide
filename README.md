@@ -7,7 +7,11 @@ Build the docker image & run it:
 Get the toradex configurations (in the docker 
 image at /home/yocto/oe-core, this is the mounted folder if you run with ``````./run_dock.sh``````):
 
-``````repo init -u http://git.toradex.com/toradex-bsp-platform.git -b LinuxImageV2.8``````
+``````
+git config --global user.email "you@example.com"
+git config --global user.name "Your Name"
+repo init -u http://git.toradex.com/toradex-bsp-platform.git -b LinuxImageV2.8
+``````
 
 Update/fetch the repos:
 

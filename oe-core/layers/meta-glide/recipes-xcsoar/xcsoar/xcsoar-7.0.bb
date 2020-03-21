@@ -6,7 +6,7 @@ HOMEPAGE = "www.xcsoar.org"
 LICENSE = "GPL-2.0"
 LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/${LICENSE};md5=801f80980d171dd6425610833a22dbe6"
 SECTION = "base/app"
-PR = "r10"
+PR = "r11"
 
 DEPENDS = "	\
 		gcc \
@@ -78,9 +78,6 @@ do_install() {
 	install -d ${D}/opt/XCSoar/bin
 	install -m 0755 ${S}/output/UNIX/bin/xcsoar ${D}/opt/XCSoar/bin
 	install -m 0755 ${S}/output/UNIX/bin/vali-xcs ${D}/opt/XCSoar/bin
-
-	install -d ${D}/opt/conf
-	install -d ${D}/opt/conf/default
 
 	install -d ${D}${LC_LOCALE_PATH}/de/LC_MESSAGES
 	install -m 0755 ${S}/output/po/de.mo ${D}${LC_LOCALE_PATH}/de/LC_MESSAGES/xcsoar.mo

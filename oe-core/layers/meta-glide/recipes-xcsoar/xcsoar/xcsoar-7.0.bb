@@ -50,6 +50,7 @@ SRC_URI = " \
 	file://0001-Disable-warnings-as-errors.patch \
 	file://0001_no_version_lua.patch \
 	file://0001-avoid-tail-cut.patch \
+	file://0001-Increase-refresh-intervall.patch \
 "
 
 inherit pkgconfig update-alternatives

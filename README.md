@@ -7,7 +7,11 @@ Build the docker image & run it:
 Get the toradex configurations (in the docker 
 image at /home/yocto/oe-core, this is the mounted folder if you run with ``````./run_dock.sh``````):
 
-``````repo init -u http://git.toradex.com/toradex-bsp-platform.git -b LinuxImageV2.8``````
+``````
+git config --global user.email "you@example.com"
+git config --global user.name "Your Name"
+repo init -u http://git.toradex.com/toradex-bsp-platform.git -b LinuxImageV2.8
+``````
 
 Update/fetch the repos:
 
@@ -40,3 +44,17 @@ You can now also generate the SD Card to deploy onto the board:
 2. go to the directory you unpacked it and run the update script:
 
 ``````./update.sh``````
+
+
+TODO
+- [x] Setup a todo list
+- [ ] XCSoar: start on boot
+- [ ] XCSoar: investigate map jitter
+- [ ] glide: test on Display L hardware
+- [ ] glide: create a maintenance menu (with Qt for Embedded Linux, use fb)
+- [ ] glide maintenance men: upload XCSoar site files
+- [ ] glide maintenance men: update XCSoar 
+- [ ] glide maintenance men: download igc files from vario
+- [ ] glide maintenance men: ??
+
+

@@ -6,7 +6,7 @@ HOMEPAGE = "www.xcsoar.org"
 LICENSE = "GPL-2.0"
 LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/${LICENSE};md5=801f80980d171dd6425610833a22dbe6"
 SECTION = "base/app"
-PR = "r10"
+PR = "r11"
 
 DEPENDS = "	\
 		gcc \
@@ -44,15 +44,22 @@ S = "${WORKDIR}/git"
 LC_LOCALE_PATH = "/usr/share/locale"
 
 SRC_URI = " \
-	git://github.com/ubx/XCSoar.git;protocol=git;branch=can-bus;tag=t30-test-02 \
+	git://github.com/ubx/XCSoar.git;protocol=git;branch=can-bus;tag=t30-test-04 \
 	file://0005-Adapted-toolchain-prefixes-for-cross-compile.patch \
 	file://0001-Adapted-Flags-for-compiler-and-linker-for-cross-comp.patch \
 	file://0001-Disable-warnings-as-errors.patch \
 	file://0001_no_version_lua.patch \
 	file://0001-avoid-tail-cut.patch \
+	file://0001-Increase-refresh-intervall.patch \
+	file://run_xcsoar.sh \
+	file://xcsoar.service \
 "
 
 inherit pkgconfig update-alternatives
+
+inherit systemd
+SYSTEMD_AUTO_ENABLE = "enable"
+SYSTEMD_SERVICE_${PN} = "xcsoar.service"
 
 addtask do_package_write_ipk after do_package after do_install
 
@@ -73,14 +80,17 @@ do_compile() {
 	##  *** USE_FB and EGL are mutually exclusive
 }
 
+
 do_install() {
 	echo "Installing ..."
 	install -d ${D}/opt/XCSoar/bin
 	install -m 0755 ${S}/output/UNIX/bin/xcsoar ${D}/opt/XCSoar/bin
 	install -m 0755 ${S}/output/UNIX/bin/vali-xcs ${D}/opt/XCSoar/bin
 
-	install -d ${D}/opt/conf
-	install -d ${D}/opt/conf/default
+	install -d ${D}/home/root
+	install -m u+x ${WORKDIR}/run_xcsoar.sh ${D}/home/root/run_xcsoar.sh
+	install -d ${D}${systemd_system_unitdir}
+	install -m 644 ${WORKDIR}/xcsoar.service ${D}${systemd_system_unitdir}/xcsoar.service
 
 	install -d ${D}${LC_LOCALE_PATH}/de/LC_MESSAGES
 	install -m 0755 ${S}/output/po/de.mo ${D}${LC_LOCALE_PATH}/de/LC_MESSAGES/xcsoar.mo
@@ -169,4 +179,7 @@ FILES_${PN} = " \
 	${LC_LOCALE_PATH}/vi/LC_MESSAGES/xcsoar.mo \
 "
 
-
+FILES_${PN} += " \
+	/home/root/run_xcsoar.sh \
+	${systemd_system_unitdir}/xcsoar.service \
+"

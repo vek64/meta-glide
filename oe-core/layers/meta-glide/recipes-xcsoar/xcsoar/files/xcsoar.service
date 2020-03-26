@@ -1,0 +1,10 @@
+[Unit]
+Description=Run XCSoar
+After=multi-user.target
+
+[Service]
+Type=simple
+ExecStart=/home/root/run_xcsoar.sh
+
+[Install]
+WantedBy=multi-user.target

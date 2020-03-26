@@ -23,7 +23,7 @@ Setup the bitbake environemnt:
 
 Now one can build the toradex colibri t30 image:
 
-``````bitbake angstrom-lxde-image``````
+``````bitbake console-tdx-image``````
 
 or build only xcsoar:
 

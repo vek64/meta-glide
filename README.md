@@ -46,15 +46,4 @@ You can now also generate the SD Card to deploy onto the board:
 ``````./update.sh``````
 
 
-TODO
-- [x] Setup a todo list
-- [ ] XCSoar: start on boot
-- [ ] XCSoar: investigate map jitter
-- [ ] glide: test on Display L hardware
-- [ ] glide: create a maintenance menu (with Qt for Embedded Linux, use fb)
-- [ ] glide maintenance men: upload XCSoar site files
-- [ ] glide maintenance men: update XCSoar 
-- [ ] glide maintenance men: download igc files from vario
-- [ ] glide maintenance men: ??
-
 

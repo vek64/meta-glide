@@ -25,6 +25,10 @@ Now one can build the toradex colibri t30 image:
 
 ``````bitbake console-tdx-image``````
 
+or for colibri t20 image:
+
+`MACHINE="colibri-t20" bitbake console-tdx-image`
+
 or build only xcsoar:
 
 ``````bitbake xcsoar-7.0``````

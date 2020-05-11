@@ -43,14 +43,17 @@ S = "${WORKDIR}/git"
 
 LC_LOCALE_PATH = "/usr/share/locale"
 
+BB_STRICT_CHECKSUM = "0"
+
 SRC_URI = " \
-	git://github.com/ubx/XCSoar.git;protocol=git;branch=can-bus;tag=t30-test-08 \
+	git://github.com/ubx/XCSoar.git;protocol=git;branch=can-bus;tag=t30-test-10 \
 	file://0005-Adapted-toolchain-prefixes-for-cross-compile.patch \
 	file://0001-Adapted-Flags-for-compiler-and-linker-for-cross-comp.patch \
 	file://0001-Disable-warnings-as-errors.patch \
 	file://0001_no_version_lua.patch \
 	file://0001-avoid-tail-cut.patch \
 	file://0001-Increase-refresh-intervall.patch \
+	https://www.flarmnet.org/static/files/wfn/data.fln \
 	file://run_xcsoar.sh \
 	file://xcsoar.service \
 "
@@ -91,6 +94,9 @@ do_install() {
 	install -m u+x ${WORKDIR}/run_xcsoar.sh ${D}/home/root/run_xcsoar.sh
 	install -d ${D}${systemd_system_unitdir}
 	install -m 644 ${WORKDIR}/xcsoar.service ${D}${systemd_system_unitdir}/xcsoar.service
+
+	install -d ${D}/home/root/.xcsoar/
+	install -m 0755 ${WORKDIR}/data.fln ${D}/home/root/.xcsoar/data.fln
 
 	install -d ${D}${LC_LOCALE_PATH}/de/LC_MESSAGES
 	install -m 0755 ${S}/output/po/de.mo ${D}${LC_LOCALE_PATH}/de/LC_MESSAGES/xcsoar.mo
@@ -182,4 +188,7 @@ FILES_${PN} = " \
 FILES_${PN} += " \
 	/home/root/run_xcsoar.sh \
 	${systemd_system_unitdir}/xcsoar.service \
+"
+FILES_${PN} += " \
+	/home/root/.xcsoar/data.fln \
 "

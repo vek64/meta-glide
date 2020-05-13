@@ -1,6 +1,6 @@
 Build the docker image & run it:
 
- ``````docker build -f Docker/Dockerfile . -t toradex-yotco``````
+ ``````docker build -f docker/Dockerfile . -t toradex-yotco``````
  
  ``````./run_dock.sh``````
 

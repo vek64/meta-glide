@@ -33,6 +33,7 @@ DEPENDS = "	\
         alsa-lib \
         curlpp \
         libsocketcan \
+        libsodium \
 "
 
 RDEPENDS_${PN} = "\

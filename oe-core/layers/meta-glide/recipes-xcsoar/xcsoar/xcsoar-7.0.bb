@@ -47,7 +47,7 @@ LC_LOCALE_PATH = "/usr/share/locale"
 BB_STRICT_CHECKSUM = "0"
 
 SRC_URI = " \
-	git://github.com/ubx/XCSoar.git;protocol=git;branch=can-bus;tag=t30-test-15 \
+	git://github.com/ubx/XCSoar.git;protocol=git;branch=can-bus;tag=t30-test-13 \
 	file://0005-Adapted-toolchain-prefixes-for-cross-compile.patch \
 	file://0001-Adapted-Flags-for-compiler-and-linker-for-cross-comp.patch \
 	file://0001-Disable-warnings-as-errors.patch \
@@ -80,7 +80,7 @@ do_compile() {
 	echo "Making .."
 	echo '${WORKDIR}'
 	cd ${WORKDIR}/git
-	make -j$(nproc) DEBUG=n DEBUG_GLIBCXX=n USE_LIBINPUT=y GEOTIFF=n USE_FB=y OPENGL=n
+	make -j$(nproc) DEBUG=y DEBUG_GLIBCXX=n USE_LIBINPUT=y GEOTIFF=n USE_FB=y OPENGL=n
 	##  *** USE_FB and EGL are mutually exclusive
 }
 

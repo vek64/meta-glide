@@ -7,20 +7,20 @@ diff --git a/include/configs/colibri_t30.h b/include/configs/colibri_t30.h
  /* Board-specific serial config */
 -#define CONFIG_TEGRA_ENABLE_UARTA
 -#define CONFIG_SYS_NS16550_COM1		NV_PA_APB_UARTA_BASE
-+#define CONFIG_TEGRA_ENABLE_UARTB
-+#define CONFIG_SYS_NS16550_COM1		NV_PA_APB_UARTB_BASE
++#define CONFIG_TEGRA_ENABLE_UARTD
++#define CONFIG_SYS_NS16550_COM1		NV_PA_APB_UARTD_BASE
 
  #define CONFIG_MACH_TYPE		MACH_TYPE_COLIBRI_T30
 
-@@ -134,7 +134,7 @@
-
- #define BOARD_EXTRA_ENV_SETTINGS \
- 	"boot_file=zImage\0" \
--	"console=ttyS0\0" \
-+	"console=ttyHS3\0" \
- 	"defargs=core_edp_mv=1300 usb_high_speed=1 user_debug=30\0" \
- 	"dfu_alt_info=" DFU_ALT_EMMC_INFO "\0" \
- 	EMMC_BOOTCMD \
+@@ -150,7 +150,7 @@
+ 		"source ${loadaddr}\0" \
+ 	"setup=setenv setupargs asix_mac=${ethaddr} " \
+ 		"consoleblank=0 no_console_suspend=1 console=tty1 " \
+-		"console=${console},${baudrate}n8 debug_uartport=lsport,0 " \
++		"console=${console},${baudrate}n8 debug_uartport=lsport,3 " \
+ 		"vmalloc=128M mem=1012M@2048M fbmem=12M@3060M\0" \
+ 	"setupdate=run setsdupdate || run setusbupdate || run setethupdate\0" \
+ 	"setusbupdate=usb start && setenv interface usb; setenv drive 0; " \
 
 
 diff --git a/board/toradex/colibri_t30/pinmux-config-colibri_t30.h b/board/toradex/colibri_t30/pinmux-config-colibri_t30.h
